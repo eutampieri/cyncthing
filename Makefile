@@ -1,3 +1,5 @@
+.PHONY: test
+
 protobuf:
 	gcc -std=c99 -Wall protobuf/encode.c protobuf/tag.c protobuf/varint.c
 bep:
@@ -6,5 +8,7 @@ build:
 	gcc -std=c99 -Wall main.c bep/*.c protobuf/*.c -lc
 clean:
 	rm a.out
+test:
+	cd tests && make
 
 all: build
